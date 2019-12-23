@@ -61,31 +61,17 @@ class App extends Component {
       });
       //  Testing current location vs dirt location, if yes, increments cleanedPiles counter, and it will remove it via the .filter method, then updates state
       if (this.state.dirtLocations.includes(this.state.combined)) {
-        this.setState({
-          cleanedPiles: this.state.cleanedPiles + 1,
-          dirtLocations: this.state.dirtLocations.filter(
-            x => x !== this.state.combined
-          )
-        });
-        // console.log(this.state.dirtLocations);
+        this.setState({cleanedPiles: this.state.cleanedPiles + 1,
+        dirtLocations: this.state.dirtLocations.filter(x => x !== this.state.combined)});
       }
     }
   };
 
   // Utilizing the async-await pattern to ensure we get asynchonous behavior because the order of each method firing off matters
   runRoomba = async () => {
-    await this.setState({
-      max_y: this.state.rmYDimension,
-      max_x: this.state.rmXDimension
-    }); // Initializes Room Dimensions
-    await this.setState({
-      current_y: this.state.sPosition[1],
-      current_x: this.state.sPosition[0]
-    }); //Initializes Starting Position
-    await this.setState({
-      dirtLocations: this.state.dirtLocations.replace(/\s/g, '').split(',')
-    }); // Regex in conjunction with .split method to remove any whitespace when user enters multiple dirt patches
-
+    await this.setState({max_y: this.state.rmYDimension,max_x: this.state.rmXDimension}); // Initializes Room Dimensions
+    await this.setState({current_y: this.state.sPosition[1],current_x: this.state.sPosition[0]}); //Initializes Starting Position
+    await this.setState({dirtLocations: this.state.dirtLocations.replace(/\s/g, '').split(',')}); // Regex in conjunction with .split method to remove any whitespace when user enters multiple dirt patches
     await this.processDirections(this.state.directions);
   };
 
