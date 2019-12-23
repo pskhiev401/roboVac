@@ -54,7 +54,7 @@ class App extends Component {
       } else if (arr[i] === 'W' && newX > 1) {
         this.setState({ current_x: --newX });
       }
-      // Converting to both X & Y then concatinating them together
+      // Converting to both X & Y to string, then concatinating them together
       this.setState({
         combined:
           this.state.current_x.toString() + this.state.current_y.toString()
