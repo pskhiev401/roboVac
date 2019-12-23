@@ -45,6 +45,7 @@ Below you will find instructions of code to type into the command prompt/termina
 #### Processing Cardinal Coordinates
 
 The crux of the logic relies on a simple for-loop where the robot evaluates each cardinal direction input. This was achieved by incrementing or decrementing the robots position, where North & South would affect the Y coordinate value, and East & West would affect the X coordinate value. To account for user prompting the robot to go 'off-grid' or run into a boundary wall, I utilized an extra condition where the current X or Y value cannot be less than highest possible X or Y value, which was derived from the room dimensions.
+
 ![Robot Logic](https://traypk.s3-us-west-1.amazonaws.com/logic.png)
 
 #### Clean-As-You-Go
